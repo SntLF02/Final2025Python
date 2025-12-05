@@ -4,7 +4,8 @@ from pydantic import Field
 from schemas.base_schema import BaseSchema
 
 if TYPE_CHECKING:
-    from schemas.product_schema import ProductSchema
+    #from schemas.product_schema import ProductSchema
+    pass
 
 
 class ReviewSchema(BaseSchema):
@@ -29,4 +30,4 @@ class ReviewSchema(BaseSchema):
         description="Product ID reference (required)"
     )
 
-    product: Optional['ProductSchema'] = None
+    #product: Optional['ProductSchema'] = None

@@ -90,15 +90,14 @@ def create_fastapi_app() -> FastAPI:
     logger.info("✅ Request ID middleware enabled (distributed tracing)")
 
     # CORS Configuration
-    cors_origins = os.getenv("CORS_ORIGINS", "*").split(",")
     fastapi_app.add_middleware(
         CORSMiddleware,
-        allow_origins=cors_origins if cors_origins != ["*"] else ["*"],
-        allow_credentials=True,
+        allow_origins=["*"],
+        allow_credentials=False, 
         allow_methods=["*"],
         allow_headers=["*"],
     )
-    logger.info(f"✅ CORS enabled for origins: {cors_origins}")
+    logger.info("✅ CORS enabled for ALL origins (allow_credentials=False)")
 
     # Rate limiting: 100 requests per 60 seconds per IP (configurable via env)
     fastapi_app.add_middleware(RateLimiterMiddleware, calls=100, period=60)

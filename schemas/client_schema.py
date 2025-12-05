@@ -6,7 +6,7 @@ from schemas.base_schema import BaseSchema
 
 if TYPE_CHECKING:
     from schemas.address_schema import AddressSchema
-    from schemas.order_schema import OrderSchema
+    # from schemas.order_schema import OrderSchema
 
 
 class ClientSchema(BaseSchema):
@@ -23,4 +23,4 @@ class ClientSchema(BaseSchema):
         description="Client's phone number (7-20 digits, optional + prefix)"
     )
     addresses: Optional[List['AddressSchema']] = []
-    orders: Optional[List['OrderSchema']] = []
+    # orders: Optional[List['OrderSchema']] = []
